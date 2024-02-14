@@ -1,7 +1,11 @@
 # BANNER and HANGMAN_PICS are some ASCII art
 # Create your own ASCII art if you desire, but
 # ONLY AFTER getting the game logic working.
+guessed_words = []
 from ascii_art import BANNER, HANGMAN_PICS
+from os import system
+def clear():
+  system("clear")
 
 # uncomment the import statement, below, when
 # you're ready to implement a one player version
@@ -26,6 +30,29 @@ Run your code from the terminal:
 
 Tests? No tests for this project. 
 """
+def ask4werd():
+    secret_word = input("*Input secret word* ")
+    clear()
+    print(BANNER, HANGMAN_PICS [0])
+    disp_word = []
+    sw_list = []
+    for l in secret_word:
+      sw_list.append(l)
+      disp_word.append("_")
+    print(disp_word)
+
+def ask4letter():
+    letter = input("*Guess a letter* ")
+    guessed_words.append(letter)
+    
+def testletter():
+    if:
+      letter in guessed_words:
+      print("*You already guessed that!*")
+      ask4letter()
+    if:
+      letter in sw_list
+
 
 
 # Here's where you can define helper functions
@@ -35,7 +62,14 @@ Tests? No tests for this project.
 # that will orchestrate all the helper functions
 # you define, above.
 def play_hangman():
-    pass
+    
+    print(BANNER)
+    print(HANGMAN_PICS [0])
+    ask4werd()
+    ask4letter()
+
+    
+    
 
 
 """
