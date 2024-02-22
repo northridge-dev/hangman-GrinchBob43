@@ -46,12 +46,17 @@ def ask4letter():
     guessed_words.append(letter)
     
 def testletter():
-    if:
-      letter in guessed_words:
-      print("*You already guessed that!*")
-      ask4letter()
-    if:
-      letter in sw_list
+    index = 0
+    if letter in guessed_words:
+        print("*You already guessed that!*")
+        ask4letter()
+    if letter in sw_list and not guessed_words:
+        for l in sw_list:
+          if l == letter:
+            index = 0
+            for l in sw_list:
+              
+          
 
 
 
