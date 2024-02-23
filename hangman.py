@@ -2,6 +2,8 @@
 # Create your own ASCII art if you desire, but
 # ONLY AFTER getting the game logic working.
 guessed_words = []
+sw_list = []
+disp_word = []
 from ascii_art import BANNER, HANGMAN_PICS
 from os import system
 def clear():
@@ -34,29 +36,31 @@ def ask4werd():
     secret_word = input("*Input secret word* ")
     clear()
     print(BANNER, HANGMAN_PICS [0])
-    disp_word = []
-    sw_list = []
+    
+    
     for l in secret_word:
       sw_list.append(l)
       disp_word.append("_")
     print(disp_word)
+    return sw_list
 
 def ask4letter():
     letter = input("*Guess a letter* ")
     guessed_words.append(letter)
+    return letter
     
-def testletter():
-    index = 0
-    if letter in guessed_words:
-        print("*You already guessed that!*")
-        ask4letter()
+def testletter(letter, disp_word, sw_list):
+    
+    # if letter in guessed_words and not sw_list:
+    #     print("*You already guessed that!*")
+    #     ask4letter()
     if letter in sw_list and not guessed_words:
         for l in sw_list:
           if l == letter:
-            index = 0
-            for l in sw_list:
-              
-          
+            poistion == sw_list.find(letter)
+            disp_word [poistion] = letter
+            print(disp_word)
+    ask4letter()
 
 
 
@@ -71,7 +75,8 @@ def play_hangman():
     print(BANNER)
     print(HANGMAN_PICS [0])
     ask4werd()
-    ask4letter()
+    letter = ask4letter()
+    testletter(letter, disp_word, sw_list)
 
     
     
