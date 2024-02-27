@@ -1,11 +1,16 @@
 # BANNER and HANGMAN_PICS are some ASCII art
 # Create your own ASCII art if you desire, but
 # ONLY AFTER getting the game logic working.
+#Set global variables
 guessed_words = []
 sw_list = []
+
 disp_word = []
+#Import ASCII art from file
 from ascii_art import BANNER, HANGMAN_PICS
+#Import 'clear' function
 from os import system
+# define clear
 def clear():
   system("clear")
 
@@ -32,33 +37,36 @@ Run your code from the terminal:
 
 Tests? No tests for this project. 
 """
+#Asks User for input and refreshes graphics after clearing word.
 def ask4werd():
     secret_word = input("*Input secret word* ")
     clear()
     print(BANNER, HANGMAN_PICS [0])
     
-    
+    #Prints blank letter list
     for l in secret_word:
       sw_list.append(l)
       disp_word.append("_")
     print(disp_word)
     return sw_list
-
+#Asks user to guess a letter
 def ask4letter():
     letter = input("*Guess a letter* ")
     guessed_words.append(letter)
+    print(guessed_words)
     return letter
-    
+    print(guessed_words)
+  #Tests letter against the letters in the secret word list  
 def testletter(letter, disp_word, sw_list):
     
     # if letter in guessed_words and not sw_list:
     #     print("*You already guessed that!*")
     #     ask4letter()
-    if letter in sw_list and not guessed_words:
+    if letter in sw_list:
         for l in sw_list:
           if l == letter:
-            poistion == sw_list.find(letter)
-            disp_word [poistion] = letter
+            poistion = enumerate(sw_list)
+            disp_word [poistion] = l
             print(disp_word)
     ask4letter()
 
